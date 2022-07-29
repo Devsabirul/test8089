@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m8)84)4*zj%+($va_q21yovd6sik6!iv_lq_3p41%*0(3&yhbw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['test8089.herokuapp.com', '127.0.0.1']
 
@@ -113,6 +113,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = {
+    os.path.join(BASE_DIR, 'static')
+}
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'project_name/static')
                     ]
