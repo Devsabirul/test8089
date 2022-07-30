@@ -7,20 +7,15 @@ from .forms import ProductForm
 
 
 def home(request):
-    product_details = ProductDetails.objects.all()
-    if request.method == "POST":
+    if request.method == 'POST':
         fm = ProductForm(request.POST, request.FILES)
-        fm.save()
-    fm = ProductForm()
-    l = len(product_details)
-
-    context = {
-        'product_details': product_details,
-        'form': fm,
-        'length': l
-    }
-
-    return render(request, 'home/index.html', context)
+        if fm.is_valid():
+            fm.save()
+            redirect('/')
+    else:
+        fm = ProductForm()
+    pd = ProductDetails.objects.all()
+    return render(request, 'home/index.html', {'form': fm, 'product': pd})
 
 
 def delete(request):

@@ -29,7 +29,7 @@
                     Show Data
                 </h1>
 
-                {% if product_details %}
+                {% if product %}
                 <table class="table text-center table-success">
                     <tr>
                         <th>id</th>
@@ -38,7 +38,7 @@
                         <th>photo</th>
                         <th>Action</th>
                     </tr>
-                    {% for pd in product_details %}
+                    {% for pd in product %}
                     <tr>
                         <td> {{forloop.counter}} </td>
                         <td>{{pd.name}}</td>
