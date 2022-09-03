@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import cloudinary_storage
 # for duploy ment
 import django_heroku
 import dj_database_url
@@ -18,7 +17,7 @@ SECRET_KEY = 'django-insecure-m8)84)4*zj%+($va_q21yovd6sik6!iv_lq_3p41%*0(3&yhbw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['test8089.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['testproject80.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -31,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'my_app',
-    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -50,7 +48,7 @@ ROOT_URLCONF = 'test_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,13 +73,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'test',
+        'NAME': 'ddnipm0iqsmr97',
 
-        'USER': 'postgres',
+        'USER': 'vkeiuydlznlplk',
 
-        'PASSWORD': 'root',
+        'PASSWORD': 'e3e804600fd789b3a27ea74c4bb20eb5f638e4beb58eaf82ca56da5586798084',
 
-        'HOST': 'localhost',
+        'HOST': 'ec2-44-207-126-176.compute-1.amazonaws.com',
 
         'PORT': '5432',
 
@@ -130,8 +128,7 @@ STATICFILES_DIRS = {
     os.path.join(BASE_DIR, 'static')
 }
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'project_name/static')
-                    ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static') ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -146,14 +143,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 
-# cloudinary_storage use
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'shisa-it-company',
-    'API_KEY': '254415131278637',
-    'API_SECRET': 'xxsFxHgzn_2zRoqdzG2ki4aWQ8c'
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 django_heroku.settings(locals())

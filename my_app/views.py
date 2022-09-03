@@ -29,7 +29,7 @@ def delete(request):
 def update(request, id):
     if request.method == 'POST':
         data = ProductDetails.objects.get(id=id)
-        fm = ProductForm(request.POST, instance=data)
+        fm = ProductForm(request.POST, request.FILES, instance=data)
         if fm.is_valid():
             fm.save()
             return redirect('/')
